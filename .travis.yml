@@ -44,7 +44,7 @@ deploy:
     bundle_type: zip
     application: myblog-service  #  웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: myblog-service-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
-    region: us-east-1
+    region: ap-northeast-2
     wait-until-deployed: true
 
 # Permission Denied error
