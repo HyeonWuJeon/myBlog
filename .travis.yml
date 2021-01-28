@@ -1,3 +1,5 @@
+# travis-ci.com 으로 이동
+
 language: java
 jdk:
   - openjdk11
@@ -7,9 +9,9 @@ branches:
     - main
 
 # Travis CI 서버의 Home 캐싱기능 -gradle
-#cache:
-#  directories:
-#    - '$HOME/.m2/repository'
+cache:
+  directories:
+    - '$HOME/.m2/repository'
 #    - '$HOME/.gradle'
 
 script: "mvn clean compile"
