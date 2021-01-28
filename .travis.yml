@@ -18,4 +18,4 @@ script: "mvn clean compile"
 notifications:
   email:
     recipients:
-      - jojoldu@gmail.com
+      - tkawnd111@gmail.com
