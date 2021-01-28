@@ -17,7 +17,7 @@ cache:
 script: "mvn clean compile"
 
 before_deploy:
-  - zip -r myblog-webservice
+  - zip -r myblog-webservice *
   - mkdir -p deploy
   - mv myblog-webservice.zip deploy/myblog-webservice.zip # deploy로 zip파일 이동
 
