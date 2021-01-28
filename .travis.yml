@@ -16,11 +16,13 @@ cache:
 
 script: "mvn clean compile"
 
+# codedeploy는 zip 파일을 인싟하지 못하므로 jar + 기타설정 파일들을 모아 합축한다.
 before_deploy:
   - zip -r myblog-webservice *
   - mkdir -p deploy
   - mv myblog-webservice.zip deploy/myblog-webservice.zip # deploy로 zip파일 이동
 
+# s3로 파일 업로드 혹은 codeDeply로 배포 등 외부 서비스와 연동될 행위들을 선언한다.
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
@@ -33,6 +35,17 @@ deploy:
     wait-until-deployed: true
     on:
       all_branches: true
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: myblog-build # S3 버킷
+    key: myblog-webservice.zip # 빌드 파일을 압축해서 전달
+    bundle_type: zip
+    application: myblog-service  #  웹 콘솔에서 등록한 CodeDeploy 어플리케이션
+    deployment_group: myblog-service-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
 
 # Permission Denied error
 before_install:
