@@ -18,8 +18,8 @@ script: "mvn clean compile"
 
 # codedeploy는 zip 파일을 인싟하지 못하므로 jar + 기타설정 파일들을 모아 합축한다.
 before_deploy:
-  - zip -r myblog-webservice *
-  - mkdir -p deploy
+  - zip -r myblog-webservice *메ㅔ
+  - mkdir -p deploy # Travis CI가 실행중인 위치에서 생성한다.
   - mv myblog-webservice.zip deploy/myblog-webservice.zip # deploy로 zip파일 이동
 
 # s3로 파일 업로드 혹은 codeDeply로 배포 등 외부 서비스와 연동될 행위들을 선언한다.
@@ -44,7 +44,7 @@ deploy:
     bundle_type: zip
     application: myblog-service  #  웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: myblog-service-group # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
-    region: ap-northeast-2
+    region: us-east-1
     wait-until-deployed: true
 
 # Permission Denied error
