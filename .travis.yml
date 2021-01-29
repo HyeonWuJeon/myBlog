@@ -62,6 +62,8 @@ deploy:
 # Permission Denied error
 before_install:
   - chmod +x mvnw
+  - chmod +x *.jar
+  - chmod +x target
 
 # CI 실행 완료시 메일로 알람
 notifications:
