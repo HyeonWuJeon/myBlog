@@ -59,9 +59,9 @@ deploy:
     on:
       all_branches: true
 
-## Permission Denied error
-#before_install:
-#  - chmod +x mvnw
+# Permission Denied error
+before_install:
+  - chmod +x mvnw
 
 # CI 실행 완료시 메일로 알람
 notifications:
