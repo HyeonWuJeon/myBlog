@@ -23,7 +23,7 @@ script: "mvn clean compile"
 #  - mv myblog-webservice.zip deploy/myblog-webservice.zip # deploy로 zip파일 이동
 
 # 테스트중 =target
-before_deploy:
+before_deploy:  
   - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
   - cp target/*.sh before-deploy/ # before_deploy에는 zip 파일에 포함 시킬 파일들을 저장한다.
   - cp appspec.yml before-deploy/
