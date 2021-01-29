@@ -22,7 +22,7 @@ script: "mvn clean compile"
 #  - mkdir -p deploy # Travis CI가 실행중인 위치에서 생성한다.
 #  - mv myblog-webservice.zip deploy/myblog-webservice.zip # deploy로 zip파일 이동
 
-#
+# 테스트중
 before_deploy:
   - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
   - cp scripts/*.sh before-deploy/ # before_deploy에는 zip 파일에 포함 시킬 파일들을 저장한다.
