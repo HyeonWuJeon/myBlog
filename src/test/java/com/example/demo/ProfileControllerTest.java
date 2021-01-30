@@ -12,7 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProfileControllerTest {
 
         @Test
-        public void real_profile이_조회된다(){
+//        @DisplayName("real_profile 조회된다")
+        public void real_profile_find(){
             //given
             String expectedProfile ="real";
             MockEnvironment env = new MockEnvironment();
@@ -29,8 +30,8 @@ class ProfileControllerTest {
         }
 
         @Test
-        @DisplayName("profile이 없으면 oauth가 조회된다.")
-        public void real_profile() {
+//        @DisplayName("profile이 없으면 oauth가 조회된다.")
+        public void real_profile_oauth() {
             //given
             String extpectedProfile = "oauth";
             MockEnvironment env = new MockEnvironment();
@@ -49,7 +50,7 @@ class ProfileControllerTest {
         }
 
         @Test
-        @DisplayName("prfile이 없으면 default가 조회된다.")
+//        @DisplayName("prfile이 없으면 default가 조회된다.")
         public void active_profile(){
             //given
             String expectedProfile ="default";
